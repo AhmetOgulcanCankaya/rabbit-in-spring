@@ -3,7 +3,7 @@
 
 A Spring Boot - RabbitMQ app that just sends a message over RabbitMQ service.
 
-###Apps
+### Apps
 [consumer-app]
 
  - Dockerfile is all you need
@@ -20,7 +20,7 @@ A Spring Boot - RabbitMQ app that just sends a message over RabbitMQ service.
 > If you change application.properties files you also have to edit charts
 
  
-###Helms
+### Helms
 
 [rabbitmq]
 
@@ -41,7 +41,7 @@ A Spring Boot - RabbitMQ app that just sends a message over RabbitMQ service.
  - Deploys to kubernetes specified with ```.kube/config```
 
 
-##Individuals
+## Individuals
 [install.sh]
  - Installs the helm charts and creates port-forwards on node
 
