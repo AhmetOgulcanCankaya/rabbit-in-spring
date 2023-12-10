@@ -38,7 +38,10 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: "RABBITMQ_HOST"
-              value: "rabbitmq"
+              valueFrom:
+                secretKeyRef:
+                  key:  host
+                  name: {{ .Values.auth.secretName }}
             - name: "RABBITMQ_PORT"
               valueFrom:
                 secretKeyRef:
