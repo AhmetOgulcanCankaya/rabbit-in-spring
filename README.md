@@ -42,6 +42,7 @@ A Spring Boot - RabbitMQ app that just sends a message over RabbitMQ service.
 
 
 ## Individuals
+
 [install.sh]
  - Installs the helm charts and creates port-forwards on node
 
