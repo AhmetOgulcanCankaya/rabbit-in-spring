@@ -10,6 +10,7 @@ spec:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.port }}
       protocol: TCP
+      nodePort: {{ .Values.service.nodeport }}
       name: http
   selector:
     {{- include "rabbit-publisher.selectorLabels" . | nindent 4 }}
