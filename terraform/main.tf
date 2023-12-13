@@ -50,16 +50,3 @@ EOF
     Terraformed = true
   }
 }
-
-resource "aws_ebs_volume" "mini_server_volume" {
- availability_zone = aws_instance.mini_server.availability_zone
- size = 40
- tags= {
-    Name = "mini_server volume"
-  }
-}
-resource "aws_volume_attachment" "ebs" {
- device_name = "/dev/sdh"
- volume_id = aws_ebs_volume.mini_server_volume.id
- instance_id = aws_instance.mini_server.id 
-}
