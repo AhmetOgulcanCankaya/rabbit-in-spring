@@ -33,24 +33,16 @@ resource "aws_instance" "mini_server" {
   instance_type = "t2.large"
   vpc_security_group_ids = ["${aws_security_group.rabbit-terraform-sg.id}"]
   subnet_id = aws_subnet.public_subnet[0].id
-
+  root_block_device {
+    volume_size = 40
+  }
   user_data = <<-EOF
 #!/bin/bash
-apt-get update
-apt-get upgrade
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-sudo apt update
-apt-cache policy docker-ce
-sudo apt install docker-ce
-sudo usermod -aG docker ubuntu
-echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
-sudo apt-get update
-sudo apt-get install -y kubectl
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube
-minikube start
+
+cd /opt
+git clone https://github.com/AhmetOgulcanCankaya/rabbit-in-spring.git
+bash ./rabbit-in-spring/install.sh
+
 EOF
 
   tags = {
@@ -61,7 +53,7 @@ EOF
 
 resource "aws_ebs_volume" "mini_server_volume" {
  availability_zone = aws_instance.mini_server.availability_zone
- size = 10
+ size = 40
  tags= {
     Name = "mini_server volume"
   }
