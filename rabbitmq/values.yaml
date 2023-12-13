@@ -1042,11 +1042,11 @@ service:
   ##
   nodePorts:
     amqp: 30672
-    amqpTls: ""
-    dist: ""
-    manager: ""
-    epmd: ""
-    metrics: ""
+    amqpTls: 30671
+    dist: 30600
+    manager: 30601
+    epmd: 30602
+    metrics: 30603
   ## @param service.extraPorts Extra ports to expose in the service
   ## E.g.:
   ## extraPorts:
@@ -1122,7 +1122,7 @@ service:
 ingress:
   ## @param ingress.enabled Enable ingress resource for Management console
   ##
-  enabled: false
+  enabled: true
 
   ## @param ingress.path Path for the default host. You may need to set this to '/*' in order to use this with ALB ingress controllers.
   ##
