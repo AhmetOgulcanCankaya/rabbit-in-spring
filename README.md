@@ -22,6 +22,9 @@ and they should be reachable
 
 ### Apps
 
+Simple send/receive user model app. Only connection between them is RabbitMQ.
+1 publisher and 1 consumer needed.
+
 [consumer-app]
  - Dockerfile is all you need
  - Run ```docker build -t rabbit-consumer:0.0.1 -f Dockerfile .``` in directory
