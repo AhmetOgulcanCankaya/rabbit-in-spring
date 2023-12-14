@@ -1,8 +1,8 @@
 #!/bin/bash
 
-
 #Add secret
 kubectl delete -f rabbitmq-secrets.yaml
+kubectl delete -f amqp-ingress.yaml
 
 #Uninstall services and RabbitMQ
 helm uninstall rabbitmq
