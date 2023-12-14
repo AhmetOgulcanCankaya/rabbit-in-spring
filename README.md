@@ -80,7 +80,7 @@ and they should be reachable
  - Reverses the effects of [install.sh]
 
 
-##Testing
+## Testing
 
 #### Rabbit-consumer
 You can use ``` kubectl logs <podName>``` for logs
