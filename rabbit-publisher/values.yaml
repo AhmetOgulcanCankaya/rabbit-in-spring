@@ -45,7 +45,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: NodePort
+  type: ClusterIP
   port: 9090
   nodePort: 31500
 
