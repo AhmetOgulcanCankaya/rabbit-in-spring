@@ -36,15 +36,6 @@ resource "aws_instance" "mini_server" {
   root_block_device {
     volume_size = 40
   }
-  user_data = <<-EOF
-#!/bin/bash
-
-cd /opt
-git clone https://github.com/AhmetOgulcanCankaya/rabbit-in-spring.git
-bash ./rabbit-in-spring/install.sh
-
-EOF
-
   tags = {
     Name = "rabbit-in-spring"
     Terraformed = true
